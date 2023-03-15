@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+ node1:
+  build: ./s1
+  container_name: nodejs1
+  ports:
+   - "81:8080"
+  volumes:
+   - /Users/sandrakumi/Downloads/CMPT_353/Week9/Nginx/s1:/usr/src/app
+  stdin_open: true
+  tty: true
+ node2:
+  build: ./s2
+  container_name: nodejs2
+  ports:
+   - "82:8080"
+  volumes:
+   - /Users/sandrakumi/Downloads/CMPT_353/Week9/Nginx/s2:/usr/src/app
+  stdin_open: true
+  tty: true
+ lb:
+  build: ./load_balancer
+  container_name: lb
+  ports:
+   - "80:80"
+  stdin_open: true
+  tty: true
+ 
+ 
+
+
+
+
